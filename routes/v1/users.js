@@ -1,3 +1,6 @@
+
+import S from 'fluent-json-schema'
+
 export default async function status (fastify, opts) {
     // There are two ways of declaring routes in Fastify,
     // the "full" declaration and the "shorthand" declaration.
