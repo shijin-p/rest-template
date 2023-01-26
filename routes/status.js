@@ -1,12 +1,16 @@
 
+import { readFileSync } from 'fs'
 import S from 'fluent-json-schema'
+import { join } from 'desm'
+
+const { version } = JSON.parse(readFileSync(join(import.meta.url, '../package.json')))
 
 // Exporting a constant named `autoPrefix` will tell
 // to `fastify-autoload` that this plugin must be loaded
 // with the prefix option. In this way every route declared
 // inside this plugin and its children will have the prefix
 // as part of the path.
-export const autoPrefix = '/status'
+export const autoPrefix = '_app/'
 
 export default async function status (fastify, opts) {
   // There are two ways of declaring routes in Fastify,
@@ -17,7 +21,7 @@ export default async function status (fastify, opts) {
   // See https://www.fastify.io/docs/latest/Routes/.
   fastify.route({
     method: 'GET',
-    path: '/',
+    path: '/status',
     handler: onStatus,
     // Fastify does an extensive use of JSON schemas.
     // It uses them for validating external input
@@ -49,6 +53,6 @@ export default async function status (fastify, opts) {
   })
 
   async function onStatus (req, reply) {
-    return { status: 'ok' }
+    return { status: 'ok', version }
   }
 }
