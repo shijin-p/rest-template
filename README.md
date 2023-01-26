@@ -19,6 +19,8 @@ This is a Node.js fastify REST API service
    pnpm add -D standard
    ```
 3. Using fastify cli to run the app and not node, reason being to make use of better error handling capability of fastify
+4. Uses mongodb as a primiary database, redis will be introduced.
+5. Mongodb will be switched (or made optional) with scylladb (2023 2nd Quarter)
 
 ## How to run
 1. Create env file and add corresponding values
