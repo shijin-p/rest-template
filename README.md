@@ -35,6 +35,11 @@ This is a Node.js fastify REST API service
    ```bash
    pnpm start
    ```
+
+## Documentation
+Using swagger docs. Api documentaion is available in /documentation in non production environment. For eg, for accessing documentation in local environment, check
+http://localhost:3000/documentation
+
 ## Ref
 1. https://www.fastify.io/
 2. https://www.fastify.io/docs/latest/Guides/Plugins-Guide/
