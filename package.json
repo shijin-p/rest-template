@@ -5,10 +5,10 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "fastify start -l info app.js",
-    "dev": "fastify start -l info -P app.js --watch",
+    "start": "pnpm exec fastify start -l info app.js",
+    "dev": "pnpm exec fastify start -l info -P app.js --watch",
     "test": "standard && tap test/**/*.test.js",
-    "print-routes": "fastify print-routes app.js"
+    "print-routes": "pnpm exec fastify print-routes app.js"
   },
   "dependencies": {
     "@fastify/autoload": "^5.7.1",
