@@ -1,9 +1,5 @@
-
-import { readFileSync } from 'fs'
 import S from 'fluent-json-schema'
-import { join } from 'desm'
-
-const { version } = JSON.parse(readFileSync(join(import.meta.url, '../package.json')))
+import { readFile } from 'node:fs/promises'
 
 // Exporting a constant named `autoPrefix` will tell
 // to `fastify-autoload` that this plugin must be loaded
@@ -53,6 +49,9 @@ export default async function status (fastify, opts) {
   })
 
   async function onStatus (req, reply) {
+    const filePath = new URL('../packages.json', import.meta.url)
+    const contents = await readFile(filePath, { encoding: 'utf8' })
+    const { version } = JSON.parse(contents)
     return { status: 'ok', version }
   }
 }

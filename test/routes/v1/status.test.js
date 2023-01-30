@@ -6,9 +6,9 @@ import { join } from 'desm'
 // your test will not be 100% reliable and the libraries you will
 // use might have some issues with it.
 import t from 'tap'
-import { build } from '../helper.js'
+import { build } from '../../helper.js'
 
-const { version } = JSON.parse(readFileSync(join(import.meta.url, '../../package.json')))
+const { version } = JSON.parse(readFileSync(join(import.meta.url, '../../../package.json')))
 
 // There are two main ways you can use to test your application,
 // one is to test with a running server, which means that inside
